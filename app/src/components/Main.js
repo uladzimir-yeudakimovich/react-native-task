@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, Linking  } from 'react-native';
 import Carousel from 'react-native-looped-carousel';
 import axios from 'axios';
 
@@ -13,28 +13,36 @@ export default class Main extends React.Component {
 
     axios.get('https://uladzimir-yeudakimovich.ml/assets/data.json').then(response => {
       this.setState({ slides: response.data });
-      // console.log(this.state.slides);
     }).catch(error => console.log(error));
   }
 
   render() {
-
-    if (this.state.slides.length > 0) {
+    if (this.state.slides !== []) {
       return (
         <View style={ stylesMain.wrapper }>
           <Text style={ stylesMain.title }>{ main.title }</Text>
-          <Text style={ stylesMain.title }>{ this.state.slides[0].name }</Text>
-          <Carousel
-            delay={2000}
-            style={ stylesMain.carousel }
-            autoplay
-          >
-            <View style={ stylesMain.slide }><Image style={ stylesMain.logo } source={require(`../../../assets/images/angular_task/angular_task1.jpg`)} alt="logo_phone"></Image></View>
-            <View style={ stylesMain.slide }><Image style={ stylesMain.logo } source={require('../../../assets/images/angular_task/angular_task2.jpg')} alt="logo_phone"></Image></View>
-            <View style={ stylesMain.slide }><Image style={ stylesMain.logo } source={require('../../../assets/images/angular_task/angular_task3.jpg')} alt="logo_phone"></Image></View>
-            <View style={ stylesMain.slide }><Image style={ stylesMain.logo } source={require('../../../assets/images/angular_task/angular_task4.jpg')} alt="logo_phone"></Image></View>
-            <View style={ stylesMain.slide }><Image style={ stylesMain.logo } source={require('../../../assets/images/angular_task/angular_task5.jpg')} alt="logo_phone"></Image></View>
-          </Carousel>
+          {
+            this.state.slides.map((item, index) => {
+              return  <View style={ stylesMain.wrapper } key={index}>
+                        <Text style={ stylesMain.name }>{ item.name }</Text>
+                        <Text style={ stylesMain.click } onPress={() => Linking.openURL( item.link )}>{ item.click }</Text>
+                        <Text style={ stylesMain.description }>{ item.description }</Text>
+                        <Carousel
+                          delay={3000}
+                          style={ stylesMain.carousel }
+                          autoplay
+                        >
+                          {
+                            item.images.map((item, index) => {
+                              return  <View style={ stylesMain.slide } key={index}>
+                                        <Image style={ stylesMain.image } source={{uri: 'https://uladzimir-yeudakimovich.ml/' + item}} alt="image"></Image>
+                                      </View>
+                              })
+                          }
+                        </Carousel>
+                      </View>;
+              })
+          }
         </View>
       );
     } else {
@@ -53,22 +61,32 @@ const main = {
 
 const stylesMain = StyleSheet.create({
   wrapper: {
+    paddingVertical: 10,
     alignItems: 'center'
   },
   title: {
-    paddingTop: 10,
     fontSize: 20
   },
-  carousel: {
+  name: {
     paddingTop: 5,
-    width: 300,
-    height: 200
+    fontSize: 16
+  },
+  click: {
+    color: '#0000FF'
+  },
+  description: {
+    paddingVertical: 5,
+    paddingHorizontal: 15
+  },
+  carousel: {
+    minWidth: 300,
+    height: 220
   },
   slide: {
-    width: 300,
-    height: 200
+    minWidth: 300,
+    height: 220
   },
-  logo: {
+  image: {
     width: '100%',
     height: '100%'
   }
