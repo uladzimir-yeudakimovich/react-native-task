@@ -2,13 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default class Header extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      fontLoaded: false,
-    };
-  }
   render() {
     return (
       <View style={ stylesHeader.wrapper }>
