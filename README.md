@@ -1,5 +1,6 @@
-# Do you want to see my react-native-task?
-# <a href="http://uladzimir-yeudakimovich.ml/react-native-task/">Click there ;)</a>
+# react-native-task
+
+# For start:
 
 clone project
 
@@ -9,6 +10,6 @@ npm install
 
 npm start
 
-install Expo from Play Market on your android
+install Expo from Play Market on your android phone
 
-use tunnel in http://localhost:19002/ to connect your phone and computer or use android studio
+use tunnel in http://localhost:19002/ to connect your phone to computer or Android Studio
