@@ -27,6 +27,7 @@ const stylesHeader = StyleSheet.create({
   },
   subname: {
     paddingTop: 60,
+    fontSize: 16,
     color: 'white'
   },
   name: {
