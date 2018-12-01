@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Linking } from 'react-native';
 import axios from 'axios';
+import SvgUri from 'react-native-svg-uri';
 
 export default class Footer extends React.Component {
 
@@ -20,8 +21,25 @@ export default class Footer extends React.Component {
     if (this.state.slides) {
       return (
         <View style={ stylesFooter.wrapper }>
-          <Text style={ stylesFooter.subname }>{ this.state.slides.name }</Text>
-          <Image style={ stylesFooter.icon } source={require('../../../assets/social_icons/phone.svg')} alt="icon"></Image>
+          <View style={ stylesFooter.title }>
+            <Text style={ stylesFooter.subname }>{ this.state.slides.name }</Text>
+          </View>
+          <View style={ stylesFooter.row }>
+            <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/phone.svg')} alt="phone"></SvgUri>
+            <Text style={ stylesFooter.click } onPress={() => Linking.openURL( 'tel://' + this.state.slides.phone )}>{ this.state.slides.phone }</Text>
+          </View>
+          <View style={ stylesFooter.row }>
+            <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/envelope.svg')} alt="email"></SvgUri>
+            <Text style={ stylesFooter.click } onPress={() => Linking.openURL( 'mailto://' + this.state.slides.email )}>{ this.state.slides.email }</Text>
+          </View>
+          <View style={ stylesFooter.row }>
+            <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/cloud.svg')} alt="cloud"></SvgUri>
+            <Text style={ stylesFooter.click } onPress={() => Linking.openURL( 'https://uladzimir-yeudakimovich.ml/assets/CV_Евдокимович Владимир.docx' )} download>{ this.state.slides.cvRussian }</Text>
+          </View>
+          <View style={ stylesFooter.row }>
+            <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/cloud.svg')} alt="cloud"></SvgUri>
+            <Text style={ stylesFooter.click } onPress={() => Linking.openURL( 'https://uladzimir-yeudakimovich.ml/assets/CV_Uladzimir Yeudakimovich.docx' )} download>{ this.state.slides.cvEnglish }</Text>
+          </View>
         </View>
       );
     } else {
@@ -36,15 +54,26 @@ export default class Footer extends React.Component {
 
 const stylesFooter = StyleSheet.create({
   wrapper: {
-    alignItems: 'center',
+    paddingVertical: 10,
     backgroundColor: '#E6F0F0'
   },
+  title: {
+    alignItems: 'center',
+  },
   subname: {
-    paddingTop: 20,
     fontSize: 20
   },
+  row: {
+    paddingTop: 5,
+    flexDirection: 'row'
+  },
   icon: {
-    width: 200,
-    height: 200
-  }
+    marginHorizontal: 10,
+    width: 20,
+    height: 20,
+    paddingRight: 10
+  },
+  click: {
+    color: '#0000FF'
+  },
 });
