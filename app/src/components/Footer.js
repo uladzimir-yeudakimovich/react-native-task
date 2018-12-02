@@ -22,7 +22,7 @@ export default class Footer extends React.Component {
       return (
         <View style={ stylesFooter.wrapper }>
           <View style={ stylesFooter.title }>
-            <Text style={ stylesFooter.subname }>{ this.state.slides.name }</Text>
+            <Text style={ stylesFooter.contacts_title }>{ this.state.slides.name }</Text>
           </View>
           <View style={ stylesFooter.row }>
             <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/phone.svg')} alt="phone"></SvgUri>
@@ -39,6 +39,27 @@ export default class Footer extends React.Component {
           <View style={ stylesFooter.row }>
             <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/cloud.svg')} alt="cloud"></SvgUri>
             <Text style={ stylesFooter.click } onPress={() => Linking.openURL( 'https://uladzimir-yeudakimovich.ml/assets/CV_Uladzimir Yeudakimovich.docx' )} download>{ this.state.slides.cvEnglish }</Text>
+          </View>
+
+          <View style={ stylesFooter.title }>
+            <Text style={ stylesFooter.contacts_title }>{ this.state.slides.subname }</Text>
+          </View>
+          <View style={ stylesFooter.row }>
+            <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/linkedin.svg')} alt="linkedin"></SvgUri>
+            <Text style={ stylesFooter.click } onPress={() => Linking.openURL('https://www.linkedin.com/in/uladzimir-yeudakimovich')}>{ this.state.slides.linkedin }</Text>
+          </View>
+          <View style={ stylesFooter.row }>
+            <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/github.svg')} alt="github"></SvgUri>
+            <Text style={ stylesFooter.click } onPress={() => Linking.openURL('https://github.com/uladzimir-yeudakimovich')}>{ this.state.slides.github }</Text>
+          </View>
+          <View style={ stylesFooter.row }>
+            {/* <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/codewars.svg')} alt="codewars"></SvgUri> */}
+            <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/students-cap.svg')} alt="students-cap"></SvgUri>
+            <Text style={ stylesFooter.click } onPress={() => Linking.openURL('https://www.codewars.com/users/uladzimir.yeudakimovich')}>{ this.state.slides.codewars }</Text>
+          </View>
+          <View style={ stylesFooter.row }>
+            <SvgUri style={ stylesFooter.icon } source={require('../../../assets/social_icons/students-cap.svg')} alt="students-cap"></SvgUri>
+            <Text style={ stylesFooter.click } onPress={() => Linking.openURL('https://www.duolingo.com/91YN1')}>{ this.state.slides.duolingo }</Text>
           </View>
         </View>
       );
@@ -60,7 +81,7 @@ const stylesFooter = StyleSheet.create({
   title: {
     alignItems: 'center',
   },
-  subname: {
+  contacts_title: {
     fontSize: 20
   },
   row: {
