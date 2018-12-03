@@ -47,9 +47,7 @@ export default class Main extends React.Component {
       );
     } else {
       return (
-        <View style={ stylesMain.wrapper }>
-          <Text style={ stylesMain.title }>Loading...</Text>
-        </View>
+        <View></View>
       );
     }
   }

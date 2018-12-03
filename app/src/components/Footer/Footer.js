@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Contacts from './Contacts';
-import Form from './Form';
+import RegisterForm from './RegisterForm';
 
 export default class Footer extends React.Component {
 
@@ -9,7 +9,7 @@ export default class Footer extends React.Component {
       return (
         <View style={ stylesFooter.wrapper }>
           <Contacts/>
-          <Form/>
+          <RegisterForm/>
         </View>
       );
   }

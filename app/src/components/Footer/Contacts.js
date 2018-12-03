@@ -13,7 +13,6 @@ export default class Contacts extends React.Component {
 
     axios.get('https://uladzimir-yeudakimovich.ml/assets/i18n/en.json').then(response => {
       this.setState({ slides: response.data.footer });
-      console.log(this.state.slides);
     }).catch(error => console.log(error));
   }
 
@@ -64,9 +63,7 @@ export default class Contacts extends React.Component {
       );
     } else {
       return (
-        <View>
-          <Text style={ stylesContacts.contacts_title }>Loading...</Text>
-        </View>
+        <View></View>
       );
     }
   }
