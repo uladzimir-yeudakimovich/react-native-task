@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Button, View  } from 'react-native';
+import { StyleSheet, Button, View, AsyncStorage } from 'react-native';
 import t from 'tcomb-form-native';
 
 export default class RegisterForm extends React.Component {
 
   handleSubmit = () => {
     const value = this._form.getValue();
-    console.log('value: ', value);
+    AsyncStorage.setItem('messages', JSON.stringify({ mess: value }));
   }
 
   render() {
