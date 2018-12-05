@@ -6,27 +6,28 @@ export default class MessagesFromLocalStorage extends React.Component {
   constructor () {
     super()
     this.state = {
-      data: AsyncStorage.getItem('messages')['mess']
+      data: AsyncStorage.getItem('messages')
     }
   }
 
   render() {
-    if (this.state.data) {
-      console.log(this.state.data);
+    if (this.state.data.mess) {
+      console.log(this.state.data.mess);
       return (
         <View>
           {
-            this.state.data.map((item, index) => {
+            this.state.data.mess.map((item, index) => {
               return  <View style={ stylesMessagesFromLocalStorage.row } key={index}>
                         <Text>{ item.name }</Text>
                         <Text>{ item.email }</Text>
                         <Text>{ item.message }</Text>
                       </View>;
-              })
+            })
           }
         </View>
       );
     } else {
+      console.log(this.state.data);
       return (
         <View></View>
       );

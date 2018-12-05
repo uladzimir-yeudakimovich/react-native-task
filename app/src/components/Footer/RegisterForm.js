@@ -6,6 +6,7 @@ export default class RegisterForm extends React.Component {
 
   handleSubmit = () => {
     const value = this._form.getValue();
+    console.log({mess: value});
     AsyncStorage.setItem('messages', JSON.stringify({ mess: value }));
   }
 
