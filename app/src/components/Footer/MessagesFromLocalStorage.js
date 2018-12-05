@@ -1,22 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View, AsyncStorage } from 'react-native';
-import axios from 'axios';
 
 export default class MessagesFromLocalStorage extends React.Component {
 
   constructor () {
     super()
     this.state = {
-      data: null
+      data: AsyncStorage.getItem('messages')['mess']
     }
-    
-    axios.get('https://uladzimir-yeudakimovich.ml/assets/message.json').then(response => {
-      this.setState({ data: response.data.mess });
-    }).catch(error => console.log(error));
   }
 
   render() {
     if (this.state.data) {
+      console.log(this.state.data);
       return (
         <View>
           {
