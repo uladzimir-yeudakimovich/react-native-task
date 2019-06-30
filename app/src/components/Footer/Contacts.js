@@ -11,7 +11,7 @@ export default class Contacts extends React.Component {
       slides: null
     }
 
-    axios.get('https://uladzimir-yeudakimovich.ml/assets/i18n/en.json').then(response => {
+    axios.get('https://uladzimir-yeudakimovich.github.io/assets/i18n/en.json').then(response => {
       this.setState({ slides: response.data.footer });
     }).catch(error => console.log(error));
   }
@@ -33,11 +33,11 @@ export default class Contacts extends React.Component {
           </View>
           <View style={ stylesContacts.row }>
             <SvgUri style={ stylesContacts.icon } source={require('../../../../assets/social_icons/cloud.svg')} alt="cloud"></SvgUri>
-            <Text style={ stylesContacts.click } onPress={() => Linking.openURL( 'https://uladzimir-yeudakimovich.ml/assets/CV_Евдокимович Владимир.docx' )} download>{ this.state.slides.cvRussian }</Text>
+            <Text style={ stylesContacts.click } onPress={() => Linking.openURL( 'https://uladzimir-yeudakimovich.github.io/assets/CV_Евдокимович Владимир.docx' )} download>{ this.state.slides.cvRussian }</Text>
           </View>
           <View style={ stylesContacts.row }>
             <SvgUri style={ stylesContacts.icon } source={require('../../../../assets/social_icons/cloud.svg')} alt="cloud"></SvgUri>
-            <Text style={ stylesContacts.click } onPress={() => Linking.openURL( 'https://uladzimir-yeudakimovich.ml/assets/CV_Uladzimir Yeudakimovich.docx' )} download>{ this.state.slides.cvEnglish }</Text>
+            <Text style={ stylesContacts.click } onPress={() => Linking.openURL( 'https://uladzimir-yeudakimovich.github.io/assets/CV_Uladzimir Yeudakimovich.docx' )} download>{ this.state.slides.cvEnglish }</Text>
           </View>
 
           <View style={ stylesContacts.title }>

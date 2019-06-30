@@ -11,11 +11,11 @@ export default class MessagesFromServer extends React.Component {
       data: null
     }
 
-    axios.get('https://uladzimir-yeudakimovich.ml/assets/i18n/en.json').then(response => {
+    axios.get('https://uladzimir-yeudakimovich.github.io/assets/i18n/en.json').then(response => {
       this.setState({ data: response.data.footer.message });
     }).catch(error => console.log(error));
 
-    axios.get('https://uladzimir-yeudakimovich.ml/assets/message.json').then(response => {
+    axios.get('https://uladzimir-yeudakimovich.github.io/assets/message.json').then(response => {
       this.setState({ slides: response.data.mess });
     }).catch(error => console.log(error));
   }

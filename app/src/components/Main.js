@@ -11,7 +11,7 @@ export default class Main extends React.Component {
       slides: []
     }
 
-    axios.get('https://uladzimir-yeudakimovich.ml/assets/data.json').then(response => {
+    axios.get('https://uladzimir-yeudakimovich.github.io/assets/data.json').then(response => {
       this.setState({ slides: response.data });
     }).catch(error => console.log(error));
   }
@@ -35,7 +35,7 @@ export default class Main extends React.Component {
                           {
                             item.images.map((item, index) => {
                               return  <View style={ stylesMain.slide } key={index}>
-                                        <Image style={ stylesMain.image } source={{uri: 'https://uladzimir-yeudakimovich.ml/' + item}} alt="image"></Image>
+                                        <Image style={ stylesMain.image } source={{uri: 'https://uladzimir-yeudakimovich.github.io/' + item}} alt="image"></Image>
                                       </View>
                               })
                           }
